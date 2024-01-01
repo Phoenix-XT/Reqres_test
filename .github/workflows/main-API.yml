@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run API Tests
-        run: newman run Reqres.in.postman_collection -e Reqres.postman_environment.json
+        run: newman run Reqres.in.postman_collection.json -e Reqres.postman_environment.json
