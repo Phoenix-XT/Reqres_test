@@ -1,0 +1,16 @@
+# This is a workflow to help run the Reqres postman test
+
+name: "Postman Tests"
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: 
+      image: postman/newman
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run API Tests
+        run: newman run Reqres.in.postman_collection -e Reqres.postman_environment.json
