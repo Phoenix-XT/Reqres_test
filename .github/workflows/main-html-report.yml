@@ -1,6 +1,6 @@
 # This workflow will help you to produce an HTML extra test results report
 
-name: Newman Tests
+name: Newman Report Tests
 on: [push, pull_request]
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-   # INstall Node on the runner
+   # Install Node on the runner
       - name: Install Node
         uses: actions/setup-node@v2
         with: 
@@ -29,8 +29,8 @@ jobs:
         
    # Run the POSTMAN collection
       - name: Run API Tests
-        run: newman run Reqres.in.postman_collection.json -e Reqres.postman_environment.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
-
+        run: newman run Reqres.in.postman_collection.json -e Reqres.postman_environment.json 
+        
     # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
         uses: actions/upload-artifact@v2
