@@ -29,11 +29,11 @@ jobs:
         
    # Run the POSTMAN collection
       - name: Run API Tests
-        run: newman run Reqres.in.postman_collection.json -e Reqres.postman_environment.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
+        run: newman run Reqres.in.postman_collection.json -e Reqres.postman_environment.json -r htmlextra --reporter-htmlextra-export newman/htmlreport.html
    
-    # Upload the contents of Test Results directory to workspace
-      - name: Output the run Details
-        uses: actions/upload-artifact@v2
+    # Upload the contents of Test Results directory to workspace        
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.1.0
         with: 
-          name: RunReports
-          path: testResults
+          name: newman-report
+          path: newman
