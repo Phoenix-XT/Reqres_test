@@ -1,2 +1,2 @@
 # Reqres_test
-A comprehensive test of reqress AI and newman report creation
+A comprehensive test of reqress API and newman report creation
